@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+"""
+Este módulo representa la clase Square
+"""
+
+
 class Square:
-    """Represent a square."""
+    """
+    Esta clase define un cuadrado
+    """
     pass
