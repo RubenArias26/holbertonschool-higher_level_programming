@@ -1,4 +1,3 @@
-/usr/bin/python3
-
+#!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
-    return ([list(map(lambda x: x * x, row)) for row in matrix])
+    return [[u**2 for u in i] for i in matrix]
