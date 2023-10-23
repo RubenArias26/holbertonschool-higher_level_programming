@@ -1,1 +1,1 @@
-Everithing is an object
+Preguntas y respuetas
