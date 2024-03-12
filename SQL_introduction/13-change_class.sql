@@ -1,2 +1,2 @@
---remove all records with a score >=5.
-DELETE FROM second_table WHERE score <=5;
+-- Elimine todos los registros con una puntuación <= 5 en la tabla second_table.
+DELETE FROM second_table WHERE score <= 5;
