@@ -1,4 +1,2 @@
---script that updates the score of Bob to 10 in the table second_table
-UPDATE second_table
-SET score = 10
-WHERE name = "Bob";
+-- Actualice la puntuación de Bob a 10 en la tabla second_table.
+UPDATE second_table SET score = 10 WHERE name = 'Bob';
