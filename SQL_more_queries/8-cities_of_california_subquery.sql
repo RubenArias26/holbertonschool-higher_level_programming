@@ -1,5 +1,5 @@
 -- lists all cities from california withotut using JOIN keyword.
-SELECT *
+SELECT id, name
 FROM cities
 WHERE state_id =
 	( SELECT id
