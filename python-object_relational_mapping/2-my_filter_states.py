@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Este modulo sirve para con BD MySQL
-Muestre todos los valores en la tabla de estados en la BD hbtn_0e_0_usa
+COnecta con mysql
 """
 
 
@@ -10,26 +9,27 @@ import sys
 
 
 if __name__ == "__main__":
-    # Estableciendo la coneccion con MySQL
+    # establece coneccion con mysql
     db = MySQLdb.connect(
-             host="localhost",
-             user=sys.argv[1],
-             passwd=sys.argv[2],
-             port=3306,
-             db=sys.argv[3],
+        host = "localhost",
+        user = sys.argv[1],
+        password = sys.argv[2],
+        port = 3306,
+        database = sys.argv[3],
     )
-    cu = db.cursor()
-    # Consulta para ordenar estados que empiecen con N ordenados por id
-    cu.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'"
-               .format(sys.argv[4]))
 
-    # Recupera todas las filas(rows)
-    rows = cu.fetchall()
+    # establecemos un cursor
+    cur = db.cursor()
+    # creamos la consulta
+    cur.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY states.id ASC", (sys.argv[4] + '%',))
 
-    # Mustra el resultado
+    # recuperamos los datos de la consulta
+    rows = cur.fetchall()
+
+    # imprimimos la consulta
     for row in rows:
         print(row)
 
-    # Cerrar el cursor y la coneccion
-    cu.close()
-    db.close()
+    # cerramos el cursor y el connect
+    cur.close
+    db.close
