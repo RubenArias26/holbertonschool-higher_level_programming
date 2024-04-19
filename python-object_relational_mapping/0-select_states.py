@@ -1,32 +1,33 @@
 #!/usr/bin/python3
 """
-this module connect with mysql
+Este modulo sirve para conectar con MySQL
 """
+
 
 import MySQLdb
 import sys
+
+
 if __name__ == "__main__":
-
-
+    # Estableciendo la coneccion con MySQL
     db = MySQLdb.connect(
-        host = "localhost",
-        user = sys.argv[1],
-        password = sys.argv[2],
-        port = 3306,
-        database = sys.argv[3],
+            host="localhost",
+            user=sys.argv[1],
+            passwd=sys.argv[2],
+            port=3306,
+            db=sys.argv[3],
     )
+    cu = db.cursor()
+    # Consulta para ordenar eatados ordenados por id
+    cu.execute("SELECT * FROM states ORDER BY id ASC")
 
-    cur = db.cursor()
-    # this is a query for obtain data order by id
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+    # Recupera todas las filas(rows)
+    rows = cu.fetchall()
 
-    # retrive all the rows
-    rows = cur.fetchall()
-
-    # show the result of the query
+    # Mustra el resultado
     for row in rows:
         print(row)
 
-    # close the cursor and connection
-    cur.close
-    db.close
+    # Cerrar el cursor y la coneccion
+    cu.close()
+    db.close()
