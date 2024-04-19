@@ -21,7 +21,7 @@ if __name__ == "__main__":
     # establecemos un cursor
     cur = db.cursor()
     # creamos la consulta
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
 
     # recuperamos los datos de la consulta
     rows = cur.fetchall()
