@@ -7,6 +7,7 @@ import MySQLdb
 import sys
 if __name__ == "__main__":
 
+
     db = MySQLdb.connect(
         host = "localhost",
         user = sys.argv[1],
@@ -17,7 +18,7 @@ if __name__ == "__main__":
 
     cur = db.cursor()
     # this is a query for obtain data order by id
-    cur.execute("SELECT * FROM states ORDER BY states.id")
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
 
     # retrive all the rows
     rows = cur.fetchall()
